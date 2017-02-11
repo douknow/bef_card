@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~normalize.css/normalize.css';
+
+@import '~@angular/material/core/theming/all-theme';
+
+@include md-core();
+
+$candy-app-primary: md-palette($md-blue);
+
+$candy-app-accent:  md-palette($md-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$candy-app-warn:    md-palette($md-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$candy-app-theme: md-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+
+@include angular-material-theme($candy-app-theme);
+
+body, html {
+  height: 100%;
+  width: 100%;
+  font-family: "Microsoft YaHei";
+}
+
+.full-width {
+  width: 100%;
+}
+
+code {
+  background: #f2f2f2;
+  color: #757575;
+  word-break: break-all;
+  border: 1px #BDBDBD solid;
+  border-radius: 3px;
+  padding: 1px 2px;
+  font-size: 16px;
+  font-family: 'Roboto';
+  line-height: 26px;
+}

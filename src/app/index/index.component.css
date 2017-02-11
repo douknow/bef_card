@@ -1,0 +1,18 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 65px;
+}
+
+app-card {
+  flex-grow: 1;
+}
+
+.actions {
+  position: fixed;
+  right: 20px;
+  z-index: 1000;
+  top: 15px;
+  color: #FFF;
+  z-index: 1000;
+}

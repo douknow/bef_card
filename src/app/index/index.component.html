@@ -1,0 +1,24 @@
+<section class="cards">
+  <div class="actions">
+    <button md-button
+      (click)="addCard=true" >添加卡片</button>
+  </div>
+  <app-edit-card
+    *ngIf="addCard"
+    (cancelClick)="addCard=false"
+    (submitClick)="cards.push($event)"
+    [type]="1"
+    buttonValue="添加" ></app-edit-card>
+  <app-edit-card 
+    *ngIf="changeCard" 
+    buttonValue="修改"
+    (cancelClick)="this.changeCard=false"
+    [type]="2"
+    [cardInfo]="editCard" ></app-edit-card>
+  <app-card 
+    *ngFor="let card of cards" 
+    [card]="card"
+    title="{{ card.title }}"
+    (deleteClick)="onDeleteClick($event)"
+    (editClick)="onEditClick($event)" ></app-card>
+</section>

@@ -1,0 +1,23 @@
+<div class="login">
+  <h3>登录
+    <a href="#/login/register" md-button>注册</a>
+  </h3>
+  <div class="form" >
+    <md-input-container class="full-width">
+      <input type="text" md-input placeholder="请输入用户名：" 
+        autofocus
+        (keyup.enter)="onClick()"
+        [(ngModel)]="username" >
+    </md-input-container>
+    <md-input-container class="full-width">
+      <input type="password" md-input placeholder="请输入密码：" 
+        (keyup.enter)="onClick()"
+        [(ngModel)]="password" >
+    </md-input-container>
+    <div class="full-width buttons">
+      <button md-raised-button color="primary" (click)="onClick()" >
+        登录
+      </button>
+    </div>
+  </div>
+</div>

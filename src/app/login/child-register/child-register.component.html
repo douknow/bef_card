@@ -1,0 +1,37 @@
+<div class="register">
+  <h3>注册
+    <a href="#/login" md-button>登录</a>
+  </h3>
+  <div class="form">
+    <md-input-container class="full-width">
+      <input type="text" md-input placeholder="请输入您的手机号码："
+        autofocus
+        (keyup.enter)="onClick()"
+        [(ngModel)]="usernumber" >
+    </md-input-container>
+    <div class="full-width re-code">
+      <md-input-container class="input-recode">
+        <input type="text" md-input placeholder="请输入验证码："
+          (keyup.enter)="onClick()"
+          [(ngModel)]="recode" >
+      </md-input-container>
+      <button md-button
+        (click)="getRecode()"
+        [(disabled)]="getCodeDis" >{{ getCodeValue }}</button>
+    </div>
+    <md-input-container class="full-width">
+      <input type="password" md-input placeholder="请输入密码"
+        (keyup.enter)="onClick()"
+        [(ngModel)]="password" >
+    </md-input-container>
+    <md-input-container class="full-width">
+      <input type="password" md-input placeholder="请确认密码："
+        (keyup.enter)="onClick()"
+        [(ngModel)]="repassword" >
+    </md-input-container>
+    <div class="full-width buttons">
+      <button type="submit" md-raised-button color="primary"
+        (click)="onClick()">注册</button>
+    </div>
+  </div>
+</div>

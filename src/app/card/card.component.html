@@ -1,0 +1,16 @@
+<md-card class="my-card">
+  <div class="title">
+    {{ card.title }}
+    <md-icon [mdMenuTriggerFor]="menu" class="card-menu" >menu</md-icon>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item
+        (click)="onEditClick()" >编辑</button>
+      <button md-menu-item
+        (click)="onDeleteClick()" >删除</button>
+    </md-menu>
+  </div>
+  <md-card-content>
+    <p [innerHTML]="card.content" >
+    </p>
+  </md-card-content>
+</md-card>
