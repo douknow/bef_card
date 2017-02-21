@@ -14,10 +14,12 @@ export class IsSignService implements CanActivate {
 
   private isSignUrl = 'issign';
 
+  private sign = {
+    isSign: false
+  };
+
   private user = {
-    get: false,
-    isSign: false,
-    userInfo: { }
+    username: ''
   };
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
@@ -33,13 +35,23 @@ export class IsSignService implements CanActivate {
 
   isSign(): Observable<boolean> {
     return this.http.get(this.isSignUrl)
-      .map(res => res.json() as Result)
+      .map(res => res.json())
+      .map(data => {
+        if (data.success === 1) {
+          Object.assign(this.user, data.result.userinfo);
+          this.sign.isSign = true;
+        }
+        return data;
+      })
       .map(result => result.success === 1);
   }
 
-  setUser() {
-    this.user.get = true;
-    this.user.isSign = true;
+  getUser() {
+    return this.user;
+  }
+
+  getIsSign() {
+    return this.sign;
   }
 
 }

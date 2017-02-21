@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { GetCardsService } from '../core/get-cards.service';
-
 import { Card } from '../card/card.module';
+import { AddChangeControlService } from '../core/add-change-control.service';
 
 @Component({
   selector: 'app-index',
@@ -11,20 +10,32 @@ import { Card } from '../card/card.module';
 })
 export class IndexComponent implements OnInit {
 
+  private controlEdit = {};
+
   private changeCard: boolean = false;
+  private addCard: boolean = false;
 
   private cards = [];
   private editCard: Card;
-  private addCard: boolean = false;
 
   constructor(
-    private getCardsService: GetCardsService
+    private getCardsService: GetCardsService,
+    private getAddCardStatuService: AddChangeControlService
   ) { }
 
   ngOnInit() {
+    this.initAddChange();
     this.getCardsService.getAllCards().then(item => {
       this.cards = item;
     });
+  }
+
+  addCancelButtonClick() {
+    this.getAddCardStatuService.closeAddCard();
+  }
+
+  initAddChange() {
+    this.controlEdit = this.getAddCardStatuService.getAddCardStatu();
   }
 
   onEditClick(card: Card): void {

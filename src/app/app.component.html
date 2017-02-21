@@ -1,6 +1,9 @@
 <md-toolbar color="primary" class="title">
-  <span>{{ title }}</span>
+  <span>Hello {{ user.username }}</span>
   <div class="actions">
+    <button md-button
+      *ngIf="sign.isSign"
+      (click)="addCardButtonClick()" >添加卡片</button>
   </div>
 </md-toolbar>
 <router-outlet></router-outlet>

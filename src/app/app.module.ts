@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { AddChangeControlService } from './core/add-change-control.service';
 import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -35,7 +35,8 @@ import { EditCardComponent } from './edit-card/edit-card.component';
   ],
   providers: [
     GetCardsService,
-    IsSignService
+    IsSignService,
+    AddChangeControlService
   ],
   bootstrap: [AppComponent]
 })

@@ -16,7 +16,8 @@ export class GetCardsService {
   getAllCards(): Promise<Object[]> {
     return this.http.get(this.url_all_cards)
       .toPromise()
-      .then(data => data.json().result.items);
+      .then(data => data.json().result.items)
+      .catch(() => []);
   }
 
 }
